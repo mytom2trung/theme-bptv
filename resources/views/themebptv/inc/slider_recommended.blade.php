@@ -13,6 +13,10 @@
                                         alt="{{ $movie->name }} - {{ $movie->origin_name }} ({{ $movie->publish_year }})"
                                         title="{{ $movie->name }} - {{ $movie->origin_name }} ({{ $movie->publish_year }})" />
                                 </figure>
+                                <div class="anime-extras" bis_skin_checked="1">
+                                    <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
+                                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
+                                </div>
                                 <span class="mli-quality">
                                     @if ($movie->type == 'series')
                                         {{ $movie->episode_current }}
