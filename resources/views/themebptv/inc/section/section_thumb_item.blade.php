@@ -14,7 +14,7 @@
                 <span class="mli-v1">{{ $movie->language }}</span>
                 <div class="anime-extras" bis_skin_checked="1">
                     <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
-                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
+                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{$movie->getRatingStar()}}</div>
                 </div>
                 <span class="mli-eps">
                     Tập
