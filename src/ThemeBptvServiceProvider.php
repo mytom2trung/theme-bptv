@@ -31,7 +31,7 @@ class ThemeBptvServiceProvider extends ServiceProvider
     {
         config(['themes' => array_merge(config('themes', []), [
             'bptv' => [
-                'name' => 'Phimletv',
+                'name' => 'BptvMod',
                 'author' => 'contact.animehay@gmail.com',
                 'package_name' => 'ggg3/theme-phimletv',
                 'publishes' => ['bptv-assets'],
