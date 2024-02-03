@@ -19,7 +19,7 @@
                         <div class="Title">{{ $movie->name }}</div>
                     </a>
                     <p class="Info">
-                        <span class="Vote AAIco-star">7.7</span>
+                        <span class="Vote AAIco-star">{{ $movie->rating_star }}</span>
                         <span class="Time AAIco-access_time">{{ $movie->episode_time }}</span>
                         <span class="Date AAIco-date_range">{{ $movie->publish_year }}</span>
                     </p>
