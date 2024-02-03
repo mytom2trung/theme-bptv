@@ -16,7 +16,10 @@
                     <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
                         bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
                 </div>
-                <span class="mli-eps-2"><i>{{ $movie->episode_current }} </i></span>
+                <span class="mli-eps">
+                    Tập
+                    <i>{{ $movie->episode_current }}</i>
+                </span>
 
 
             </div>

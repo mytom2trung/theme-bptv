@@ -71,6 +71,21 @@
         </div>
         @include('themes::themebptv.inc.footer')
     </div>
+    <script>
+        function redirectRandomMovie() {
+            // Array of movie links
+            var movieLinks = [
+                {!!get_theme_option('addlinkrandom')!!}
+            ];
+
+            // Get a random movie link
+            var randomIndex = Math.floor(Math.random() * movieLinks.length);
+            var randomMovieLink = movieLinks[randomIndex];
+
+            // Redirect to the random movie link
+            window.location.href = randomMovieLink;
+        }
+    </script>
 @endsection
 
 

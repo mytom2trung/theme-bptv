@@ -17,12 +17,9 @@
                                     <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
                                         bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
                                 </div>
-                                <span class="mli-quality">
-                                    @if ($movie->type == 'series')
-                                        {{ $movie->episode_current }}
-                                    @else
-                                        {{ $movie->quality }} {{ $movie->language }}
-                                    @endif
+                                <span class="mli-eps">
+                                    Tập
+                                    <i>{{ $movie->episode_current }}</i>
                                 </span>
                             </div>
                             <h2 class="Title">{{ $movie->name }}</h2> <span class="Year">{{ $movie->origin_name }}
