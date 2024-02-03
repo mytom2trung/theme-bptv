@@ -15,11 +15,16 @@
                                 </figure>
                                 <div class="anime-extras" bis_skin_checked="1">
                                     <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
-                                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
+                                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}
+                                    </div>
                                 </div>
                                 <span class="mli-eps">
-                                    Tập
-                                    <i>{{ $movie->episode_current }}</i>
+                                    @if ($movie->episode_current == 'Trọn Bộ')
+                                        Trọn
+                                        <i>Bộ</i>
+                                    @else
+                                        Tập <i>{{ $movie->episode_current }}</i>
+                                    @endif
                                 </span>
                             </div>
                             <h2 class="Title">{{ $movie->name }}</h2> <span class="Year">{{ $movie->origin_name }}

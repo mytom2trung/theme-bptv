@@ -2,6 +2,11 @@
 
 @php
     $menu = \Ophim\Core\Models\Menu::getTree();
+    $randomphim = Cache::remember('site.movies.randomphim', setting('site_cache_ttl', 5 * 60), function () {
+        return Movie::where('is_copyright', false)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+    });
     $tops = Cache::remember('site.movies.tops', setting('site_cache_ttl', 5 * 60), function () {
         $lists = preg_split('/[\n\r]+/', get_theme_option('hotest'));
         $data = [];
@@ -36,7 +41,7 @@
 @endphp
 
 @push('header')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -75,7 +80,9 @@
         function redirectRandomMovie() {
             // Array of movie links
             var movieLinks = [
-                {!!get_theme_option('addlinkrandom')!!}
+                @foreach ($randomphim as $movie)
+                    "{{ $movie->getUrl() }}",
+                @endforeach
             ];
 
             // Get a random movie link

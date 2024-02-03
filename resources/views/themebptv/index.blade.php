@@ -10,6 +10,12 @@
             ->get();
     });
 
+    $randomphim = Cache::remember('site.movies.randomphim', setting('site_cache_ttl', 5 * 60), function () {
+        return Movie::where('is_copyright', false)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+    });
+
     $data = Cache::remember('site.movies.latest', setting('site_cache_ttl', 5 * 60), function () {
         $lists = preg_split('/[\n\r]+/', get_theme_option('latest'));
         $data = [];

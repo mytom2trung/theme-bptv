@@ -109,7 +109,8 @@
                         </ul>
                     </li>
                 </ul>
-                <input type="text" id="searchBox" placeholder="Tìm tập phim..." style="
+                <input type="text" id="searchBox" placeholder="Tìm tập phim..."
+                    style="
     background: 0 0;
     border: 1px solid #fff;
     height: 32px;
@@ -177,25 +178,24 @@
             <footer class="ClFx">
                 <div class="VotesCn">
                     <div class="Prct">
-                        <div id="TPVotes" data-percent="{{$currentMovie->getRatingStar()}}">
+                        <div id="TPVotes" data-percent="{{ $currentMovie->getRatingStar() }}">
                         </div>
                     </div>
                     <div class="post-ratings" itemscope itemtype="http://schema.org/Article">
                         <input id="hint_current" type="hidden" value="">
-                        <input id="score_current" type="hidden"
-                            value="{{$currentMovie->getRatingStar()}}">
-                        <div id="star" data-score="{{$currentMovie->getRatingStar()}}"
-                            style="cursor: pointer;"></div>
+                        <input id="score_current" type="hidden" value="{{ $currentMovie->getRatingStar() }}">
+                        <div id="star" data-score="{{ $currentMovie->getRatingStar() }}" style="cursor: pointer;">
+                        </div>
                         <br />
-                        (<strong class="num-rating">{{$currentMovie->getRatingCount()}}</strong> lượt, đánh giá: <strong
-                            id="average_score">{{$currentMovie->getRatingStar()}}</strong>
+                        (<strong class="num-rating">{{ $currentMovie->getRatingCount() }}</strong> lượt, đánh giá: <strong
+                            id="average_score">{{ $currentMovie->getRatingStar() }}</strong>
                         trên 10)<br />
                         <span class="post-ratings-text" id="hint"></span>
                     </div>
                     <div style="display: none;" itemprop="aggregateRating" itemscope
                         itemtype="http://schema.org/AggregateRating">
-                        <span itemprop="ratingValue">{{$currentMovie->getRatingStar()}}</span>
-                        <meta itemprop="ratingCount" content="{{$currentMovie->getRatingCount()}}">
+                        <span itemprop="ratingValue">{{ $currentMovie->getRatingStar() }}</span>
+                        <meta itemprop="ratingCount" content="{{ $currentMovie->getRatingCount() }}">
                         <meta itemprop="bestRating" content="10" />
                         <meta itemprop="worstRating" content="1" />
                     </div>
@@ -203,7 +203,8 @@
                 <p class="Info">
                     <span class="Time AAIco-access_time">{{ $currentMovie->episode_time ?? 'N/A' }}</span>
                     <span class="Date AAIco-date_range">{{ $currentMovie->publish_year }}</span>
-                    <span class="View AAIco-remove_red_eye">{{ bptv_format_view($currentMovie->view_total) }} lượt xem</span>
+                    <span class="View AAIco-remove_red_eye">{{ bptv_format_view($currentMovie->view_total) }} lượt
+                        xem</span>
                 </p>
             </footer>
             @if ($currentMovie->getPosterUrl())
@@ -224,62 +225,70 @@
             <div class="Title"><i class="fa fa-info-circle"></i>&nbsp; &nbsp;CÓ THỂ BẠN MUỐN XEM?</div>
             <ul class="MovieList Rows AX A06 B04 C03 E20">
                 @foreach ($movie_related as $movie)
-                <li class="TPostMv">
-                    <article id="post-698303"
-                        class="TPost C post-698303 post type-post status-publish format-standard has-post-thumbnail hentry">
-                        <a href="{{ $movie->getUrl() }}">
-                            <div class="Image">
-                                <figure class="Objf TpMvPlay AAIco-play_arrow">
-                                    <img width="215" height="320"
-                                        src="{{ $movie->getThumbUrl() }}"
-                                        class="attachment-thumbnail size-thumbnail wp-post-image" alt="{{ $movie->name }} ({{ $movie->publish_year }})"
-                                        title="{{ $movie->name }} ({{ $movie->publish_year }})">
+                    <li class="TPostMv">
+                        <article id="post-698303"
+                            class="TPost C post-698303 post type-post status-publish format-standard has-post-thumbnail hentry">
+                            <a href="{{ $movie->getUrl() }}">
+                                <div class="Image">
+                                    <figure class="Objf TpMvPlay AAIco-play_arrow">
+                                        <img width="215" height="320" src="{{ $movie->getThumbUrl() }}"
+                                            class="attachment-thumbnail size-thumbnail wp-post-image"
+                                            alt="{{ $movie->name }} ({{ $movie->publish_year }})"
+                                            title="{{ $movie->name }} ({{ $movie->publish_year }})">
 
-                                </figure>
+                                    </figure>
 
-                                <span class="mli-v1">{{ $movie->language }}</span>
-                                <div class="anime-extras" bis_skin_checked="1">
-                                    <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
-                                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
+                                    <span class="mli-v1">{{ $movie->language }}</span>
+                                    <div class="anime-extras" bis_skin_checked="1">
+                                        <div class="anime-avg-user-rating"
+                                            data-action="click->anime-card#showLibraryEditor" bis_skin_checked="1"><i
+                                                class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
+                                    </div>
+                                    <span class="mli-eps">
+                                        @if ($movie->episode_current == 'Trọn Bộ')
+                                            Trọn
+                                            <i>Bộ</i>
+                                        @else
+                                            Tập <i>{{ $movie->episode_current }}</i>
+                                        @endif
+                                    </span>
+
+
                                 </div>
-                                <span class="mli-eps-2"><i>{{ $movie->episode_current }} </i></span>
-
-
+                                <h2 class="Title">{{ $movie->name }}</h2>
+                                <span class="Year">{{ $movie->origin_name }}</span>
+                            </a>
+                            <div class="TPMvCn anmt">
+                                <div class="Title" style="text-align:justify">{{ $movie->name }}</div>
+                                <span class="Year" style="text-align:justify">{{ $movie->origin_name }}</span>
+                                <p class="Info"> <span class="Time AAIco-access_time"></span> <span
+                                        class="Date AAIco-date_range">{{ $movie->publish_year }}</span></p>
+                                <div style="text-align:justify" class="Description">
+                                    <p>{!! mb_substr(strip_tags($movie->content), 0, 142, 'utf-8') !!}...</p>
+                                    <p class="Director AAIco-videocam"><span>Đạo diễn:</span>
+                                        {{ count($movie->directors) ? $movie->directors->first()['name'] : 'Đang cập nhật' }}
+                                        <i class="Button STPa AAIco-more_horiz"></i>
+                                    </p>
+                                    <p class="Genre AAIco-movie_creation"><span>Thể loại:</span>
+                                        {!! count($movie->categories)
+                                            ? '<a href="' .
+                                                $movie->categories->first()->getUrl() .
+                                                '" title="' .
+                                                $movie->categories->first()['name'] .
+                                                '">' .
+                                                $movie->categories->first()['name'] .
+                                                '</a>'
+                                            : 'N/A' !!}
+                                        <i class="Button STPa AAIco-more_horiz"></i>
+                                    </p>
+                                    <p class="Actors AAIco-person"><span>Diễn viên:</span>
+                                        {{ count($movie->actors) ? $movie->actors->first()['name'] : 'N/A' }}
+                                        <i class="Button STPa AAIco-more_horiz"></i>
+                                    </p>
+                                </div>
                             </div>
-                            <h2 class="Title">{{ $movie->name }}</h2>
-                            <span class="Year">{{ $movie->origin_name }}</span>
-                        </a>
-                        <div class="TPMvCn anmt">
-                            <div class="Title" style="text-align:justify">{{ $movie->name }}</div>
-                            <span class="Year" style="text-align:justify">{{ $movie->origin_name }}</span>
-                            <p class="Info"> <span class="Time AAIco-access_time"></span> <span
-                                    class="Date AAIco-date_range">{{ $movie->publish_year }}</span></p>
-                            <div style="text-align:justify" class="Description">
-                                <p>{!! mb_substr(strip_tags($movie->content), 0, 142, 'utf-8') !!}...</p>
-                                <p class="Director AAIco-videocam"><span>Đạo diễn:</span>
-                                    {{ count($movie->directors) ? $movie->directors->first()['name'] : 'Đang cập nhật' }}
-                                    <i class="Button STPa AAIco-more_horiz"></i>
-                                </p>
-                                <p class="Genre AAIco-movie_creation"><span>Thể loại:</span>
-                                    {!! count($movie->categories)
-                                        ? '<a href="' .
-                                            $movie->categories->first()->getUrl() .
-                                            '" title="' .
-                                            $movie->categories->first()['name'] .
-                                            '">' .
-                                            $movie->categories->first()['name'] .
-                                            '</a>'
-                                        : 'N/A' !!}
-                                    <i class="Button STPa AAIco-more_horiz"></i>
-                                </p>
-                                <p class="Actors AAIco-person"><span>Diễn viên:</span>
-                                    {{ count($movie->actors) ? $movie->actors->first()['name'] : 'N/A' }}
-                                    <i class="Button STPa AAIco-more_horiz"></i>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                </li>
+                        </article>
+                    </li>
                 @endforeach
             </ul>
         </div>
@@ -310,7 +319,7 @@
     </script>
 
     <script>
-        var episode_id = {{$episode->id}};
+        var episode_id = {{ $episode->id }};
         const wrapper = document.getElementById('media-player');
         const vastAds = "{{ Setting::get('jwplayer_advertising_file') }}";
 
@@ -526,7 +535,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const episode = '{{$episode->id}}';
+            const episode = '{{ $episode->id }}';
             let playing = document.querySelector(`[data-id="${episode}"]`);
             if (playing) {
                 playing.click();

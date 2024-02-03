@@ -4,9 +4,9 @@
         <a href="{{ $movie->getUrl() }}">
             <div class="Image">
                 <figure class="Objf TpMvPlay AAIco-play_arrow">
-                    <img width="215" height="320"
-                        src="{{ $movie->getThumbUrl() }}"
-                        class="attachment-thumbnail size-thumbnail wp-post-image" alt="{{ $movie->name }} ({{ $movie->publish_year }})"
+                    <img width="215" height="320" src="{{ $movie->getThumbUrl() }}"
+                        class="attachment-thumbnail size-thumbnail wp-post-image"
+                        alt="{{ $movie->name }} ({{ $movie->publish_year }})"
                         title="{{ $movie->name }} ({{ $movie->publish_year }})">
 
                 </figure>
@@ -14,11 +14,16 @@
                 <span class="mli-v1">{{ $movie->language }}</span>
                 <div class="anime-extras" bis_skin_checked="1">
                     <div class="anime-avg-user-rating" data-action="click->anime-card#showLibraryEditor"
-                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{$movie->getRatingStar()}}</div>
+                        bis_skin_checked="1"><i class="fa fa-star"></i>&nbsp;{{ $movie->rating_star }}</div>
                 </div>
                 <span class="mli-eps">
-                    Tập
-                    <i>{{ $movie->episode_current }}</i>
+                    @if ($movie->episode_current == 'Trọn Bộ')
+                        Trọn
+                        <i>Bộ</i>
+                    @else
+                        Tập <i>{{ $movie->episode_current }}</i>
+                    @endif
+
                 </span>
 
 
