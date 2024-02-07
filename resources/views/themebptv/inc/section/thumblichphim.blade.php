@@ -9,7 +9,7 @@
                         alt="{{$movie->name}} - {{$movie->origin_name}} ({{$movie->publish_year}})"
                         title="{{$movie->name}} - {{$movie->origin_name}} ({{$movie->publish_year}})">
                 </figure>
-                <span <span="" class="a2-1">8.0</span>
+                <span class="a2-1">{{$movie->getRatingStar()}}</span>
                 <span class="mli-quality">{{$movie->episode_current}}</span>
 
                 <style>
