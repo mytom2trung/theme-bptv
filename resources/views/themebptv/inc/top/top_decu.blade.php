@@ -2,7 +2,7 @@
     <div class="Title"><i class="fa-lightbulb-o"></i>&nbsp; &nbsp;{{ $item['label'] }}</div>
     <div class="TpSbList">
         <ul class="MovieList Rows AF A04">
-            @foreach ($phimdecuside as $movie)
+            @foreach ($item['data'] as $movie)
                 <li>
                     <div class="TPost B">
                         <a title="{{ $movie->name }} - {{ $movie->origin_name }} ({{ $movie->publish_year }})"

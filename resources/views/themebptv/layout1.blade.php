@@ -45,12 +45,6 @@ use Ophim\Core\Models\Movie;
             ->orderBy('updated_at', 'desc')
             ->get();
     });
-    $phimdecuside = Cache::remember('site.movies.phimdecuside', setting('site_cache_ttl', 5 * 60), function () {
-        return Movie::inRandomOrder()
-            ->limit('6')
-            ->orderBy('view_total', 'asc')
-            ->get();
-    });
 @endphp
 
 @push('header')
@@ -82,7 +76,7 @@ use Ophim\Core\Models\Movie;
                     @yield('catalog_filter')
                     <div class="TpRwCont">
                         @yield('content')
-                        @include('themes::themebptv.inc.aside')
+                        @include('themes::themebptv.inc.top')
                     </div>
                 </div>
             </div>

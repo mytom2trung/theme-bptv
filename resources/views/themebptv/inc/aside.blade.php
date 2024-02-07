@@ -21,4 +21,12 @@
     <div class="tag-list-main">
     </div>
     {!! get_theme_option('moinguoitimkiem') !!}
+    <section class="Wdgt">
+        <div class="Title"><i class="fa-solid fa-link"></i>&nbsp; &nbsp;Mọi người cũng tìm kiếm</div>
+        <p class="Year" style="text-align:justify;">
+            @foreach ($phimmoi as $movie)
+                <a title="{{ $movie->name }}" style="color: #78909c;" href="{{ $movie->getUrl() }}">#{{$movie->name}}</a>
+            @endforeach
+        </p>
+    </section>
 </aside>

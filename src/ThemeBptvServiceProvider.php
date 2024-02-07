@@ -151,13 +151,13 @@ class ThemeBptvServiceProvider extends ServiceProvider
                                                 </nav>
                                                 <ul class="ListSocial">
                                                     <li>
-                                                        <a target="_blank" href="mailto:contact@phim1z.net" class="fa-link"></a>
+                                                        <a target="_blank" href="/" class="fa-link"></a>
                                                     </li>
                                                     <li>
-                                                        <a target="_blank" href="https://www.facebook.com/groups/phimz.org/" class="fa-facebook"></a>
+                                                        <a target="_blank" href="/" class="fa-facebook"></a>
                                                     </li>
                                                     <li>
-                                                        <a target="_blank" href="https://t.me/+hC2J0oUMdMYwYTdl" class="fa-telegram"></a>
+                                                        <a target="_blank" href="/" class="fa-telegram"></a>
                                                     </li>
                                                     <li>
                                                         <a rel="nofollow" href="javascript:void(0)" class="Up AAIco-arrow_upward" title="Cuộn lên trên"></a>

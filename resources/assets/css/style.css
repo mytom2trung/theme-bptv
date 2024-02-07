@@ -3299,7 +3299,7 @@ section>.Top>.Button:last-child {
 .NoBrdRa .TPlayer video,
 .NoBrdRa .TPlayer object,
 .NoBrdRa .TPlayer embed {
-  border-radius: 3px !important
+  border-radius: 10px !important
 }
 
 .NoBrdRa .Menu .sub-menu,
@@ -5896,7 +5896,7 @@ input[type=submit],
 .ListPOpt>li>a.Fav,
 .TPlayer .lgtbx-lnk:hover,
 .BgC {
-  background-color: #b71c1c
+  background-color: #255272d1;
 }
 
 .TPost .Top.Num1>i:before,
@@ -6059,10 +6059,10 @@ input[type=submit] {
   color: #fff
 }
 
-section>.Top>h1 {
+ section>.Top>h1 {
   color: #eee;
   font-size: 18px;
-  background: linear-gradient(81.43deg, #b71c1c -26.81%, #8e1438 87.89%);
+  background: #255272d1;
   border-radius: 6px;
   padding: 8px;
   text-transform: uppercase;
@@ -7071,14 +7071,14 @@ span.movie-status {
 
 span.mli-eps {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   width: 40px;
   padding-top: 8px;
   text-align: center;
   height: 40px;
   border-radius: 50%;
-  background: rgba(183, 28, 28, .9);
+  background: #255272d1;
   color: #fff;
   font-size: 10px;
   text-transform: uppercase;
@@ -7089,7 +7089,6 @@ span.mli-eps {
 span.mli-eps i {
   display: block;
   font-weight: 700;
-  font-size: 14px;
   font-style: normal;
   margin-top: 3px
 }
@@ -7406,7 +7405,7 @@ template,
   width: 3.2%;
   margin: 0 .25% .8%;
   padding: 5px 1px;
-  border-radius: 3px !important;
+  border-radius: 10px !important;
   overflow: hidden;
   color: #d4d4d4;
   font-size: 14px;
@@ -8085,7 +8084,7 @@ ul.bxh-movie-phimletv>li:first-child .rank-score .score {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  background: rgba(255, 0, 0, .6);
+  background: #255272d1;
   padding: 5px 0
 }
 
